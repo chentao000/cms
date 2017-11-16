@@ -1,0 +1,42 @@
+<aside>
+    <div class="search">
+        <form class="searchform" method="get" action="/search">
+            <input type="text" name="search" class="search_keyword" style="float: left;width: 165px" <if value="Request::get('search')">value="{{Request::get('search')}}"</if>/>
+            <button style="background: white;width: 50px;height: 30px;margin-left:10px;float: left">搜索</button>
+        </form>
+    </div>
+    <div class="sunnav">
+        <ul>
+            <category row="4" pid="0">
+                <li><a href="{{$field['url']}}"  title="{{$field['cate_name']}}">{{$field['cate_name']}}</a></li>
+            </category>
+
+        </ul>
+    </div>
+    <div class="tuijian">
+        <h2>推荐文章</h2>
+        <ol>
+            <article rand="1" row="9">
+                <li><span><strong>{{$num}}</strong></span><a href="{{__ROOT__}}/c/{{$field['art_id']}}">{{$field['art_title']}}</a></li>
+            </article>
+        </ol>
+    </div>
+    <div class="toppic">
+        <h2>图文并茂</h2>
+        <ul>
+            <article row="3" cid="7">
+                <li><a href="{{__ROOT__}}/c/{{$field['art_id']}}"><img src="{{__ROOT__}}/{{$field['art_thumb']}}">{{$field['art_title']}}
+                    <p>{{$field['art_author']}}</p>
+                </a></li>
+            </article>
+        </ul>
+    </div>
+    <div class="clicks">
+        <h2>热门点击</h2>
+        <ol>
+            <article row="5" order="6">
+                <li><span><a href="/">{{$field['cateName']}}</a></span><a href="{{__ROOT__}}/c/{{$field['art_id']}}">{{$field['art_title']}}</a></li>
+            </article>
+        </ol>
+    </div>
+</aside>

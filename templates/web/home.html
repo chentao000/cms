@@ -1,0 +1,26 @@
+<include file="templates/web/common/header.html"/>
+<!--header end-->
+<div id="mainbody">
+    <div class="blogs">
+        <div class="newlist">
+            <h2><span><a href="/news/china/">国内新闻</a></span>
+                您当前的位置：<a href="{{__ROOT__}}">首页</a>&nbsp;>&nbsp;<a
+                    href="{{__ROOT__}}/h/{{$cate_data['cate_id']}}">{{$cate_data['cate_name']}}</a></h2>
+            <ul>
+                <h3>{{$cate_data['cate_name']}}</h3>
+               <article>
+                   <li style="margin-top: 20px;font-size: 16px;">
+                       <span> {{date('Y-m-d',strtotime($field['created_at']))}}</span>
+                       <a href="{{__ROOT__}}/c/{{$field['art_id']}}" title="{{$field['art_title']}}" >{{$field['art_title']}}</a>
+                   </li>
+               </article>
+
+            </ul>
+        </div>
+        <!--bloglist end-->
+        <include file="templates/web/common/aside.html"/>
+    </div>
+    <!--blogs end-->
+</div>
+<!--mainbody end-->
+<include file="templates/web/common/footer.html"/>

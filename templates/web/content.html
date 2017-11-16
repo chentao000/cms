@@ -1,0 +1,40 @@
+<include file="templates/web/common/header.html"/>
+<!--header end-->
+<div id="mainbody">
+    <div class="blogs">
+        <div id="index_view">
+            <h2 class="t_nav"><a href="{{__ROOT__}}">网站首页</a><a href="{{__ROOT__}}/c/{{$artDate['art_id']}}">{{$artDate['art_title']}}</a></h2>
+            <h1 class="c_titile">{{$artDate['art_title']}}</h1>
+            <p class="box">发布时间：{{date('Y-m-d',strtotime($artDate['created_at']))}}<span>编辑：{{$artDate['art_author']}}</span>阅读（{{$artDate['art_click']}}）</p>
+            <ul>
+                {{$artDate['art_content']}}
+            </ul>
+            <div class="share">
+                <!-- Baidu Button BEGIN -->
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"><span class="bds_more">分享到：</span> <a
+                        class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a
+                        class="bds_renren"></a> <a class="bds_t163"></a> <a class="shareCount"></a></div>
+                <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6574585"></script>
+                <script type="text/javascript" id="bdshell_js"></script>
+                <script type="text/javascript">
+                    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)
+                </script>
+                <!-- Baidu Button END -->
+            </div>
+            <div class="otherlink">
+                <h2>相关文章</h2>
+                <ul>
+                    <article rand="1" row="5" cid="$artDate['art_cate_id']">
+                        <li><a href="{{__ROOT__}}/c/{{$field['art_id']}}" title="{{$field['art_title']}}">{{$field['art_title']}}</a>
+                        </li>
+                    </article>
+                </ul>
+            </div>
+        </div>
+        <!--bloglist end-->
+        <include file="templates/web/common/aside.html"/>
+    </div>
+    <!--blogs end-->
+</div>
+<!--mainbody end-->
+<include file="templates/web/common/footer.html"/>

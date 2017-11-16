@@ -1,0 +1,47 @@
+<extend file='templates/mobile/common.html'/>
+<block name="content">
+    <div class="am-container" style="margin-top: 10px">
+        <slide row="1">
+            <img src="{{__ROOT__}}/{{$field['slide_thumb']}}" class="am-img-responsive" alt=""/>
+        </slide>
+    </div>
+    <div class="star am-container mcenter"><span>{{$cate_data['cate_name']}}</span></div>
+    <div class="am-container events">
+        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1 am-avg-md-2 am-avg-lg-2 am-gallery-bordered"
+            data-am-gallery="{  }">
+            <article row="4" ishot="1">
+                <li>
+                    <div class="am-gallery-item">
+                        <a href="{{$field['url']}}" class="">
+                            <img src="{{__ROOT__}}/{{$field['art_thumb']}}" alt="{{$field['art_title']}}"/>
+                            <div class="efe">{{$field['art_title']}}</div>
+                            <p>{{$field['art_description']}}</p>
+                            <div class="am-gallery-desc fee">
+                                <div class="am-fl">{{$field['art_author']}}</div>
+                                <div class="am-fr">{{date('Y/m/d',strtotime($field['created_at']))}}</div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </article>
+        </ul>
+    </div>
+
+    <div class="star am-container mcenter"><span>猜你喜欢</span></div>
+    <div class="am-container">
+        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-gallery-bordered"
+            data-am-gallery="{  }">
+            <article rand="1" row="6">
+                <li>
+                    <div class="am-gallery-item">
+                        <a href="{{$field['url']}}" class="">
+                            <img src="{{__ROOT__}}/{{$field['art_thumb']}}" alt="{{$field['art_title']}}"/>
+                            <h3 class="am-gallery-title">{{$field['art_title']}}</h3>
+                            <div class="am-gallery-desc">{{date('y/m/d',strtotime($field['created_at']))}}</div>
+                        </a>
+                    </div>
+                </li>
+            </article>
+        </ul>
+    </div>
+</block>

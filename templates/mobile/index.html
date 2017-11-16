@@ -1,0 +1,61 @@
+<extend file='templates/mobile/common.html'/>
+<block name="content">
+    <!--banner-->
+    <div class="banner">
+        <div class="am-g am-container">
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-8">
+                <div data-am-widget="slider" class="am-slider am-slider-c1" data-am-slider='{"directionNav":false}'>
+                    <ul class="am-slides">
+                        <slide row="4">
+                            <li>
+                                <a href="{{$field['slide_linkurl']}}"><img src="{{$field['slide_thumb']}}"></a>
+                                <div class="am-slider-desc">{{$field['slide_title']}}</div>
+
+                            </li>
+                        </slide>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--news-->
+    <div class="am-g am-container newatype">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-8 oh">
+            <div data-am-widget="titlebar" class="am-titlebar am-titlebar-default"
+                 style="border-bottom: 0px; margin-bottom: -10px">
+                <h2 class="am-titlebar-title ">
+                    推荐阅读
+                </h2>
+            </div>
+
+            <div data-am-widget="list_news" class="am-list-news am-list-news-default news">
+                <div class="am-list-news-bd">
+                    <ul class="am-list">
+                        <article order="2" row="8">
+                            <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left"
+                                data-am-scrollspy="{animation:'fade'}">
+                                <div class="am-u-sm-5 am-list-thumb">
+                                    <a href="{{$field['url']}}">
+                                        <img src="{{__ROOT__}}/{{$field['art_thumb']}}" alt="{{$field['art_title']}}"/>
+                                    </a>
+
+                                </div>
+
+                                <div class=" am-u-sm-7 am-list-main">
+                                    <h3 class="am-list-item-hd"><a href="{{$field['url']}}"
+                                                                   style="display: block;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">{{$field['art_title']}}</a>
+                                    </h3>
+                                    <div class="am-list-item-text">{{$field['art_description']}}</div>
+                                </div>
+                            </li>
+                            <div class="newsico am-fr">
+                                <i class="">{{date('y/m/d',strtotime($field['created_at']))}}</i>
+                            </div>
+                        </article>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</block>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <meta name="keywords" content="黑色模板"/>
+    <link href="{{__ROOT__}}/{{__TEMPLATE__}}/css/styles.css" rel="stylesheet">
+    <link href="{{__ROOT__}}/{{__TEMPLATE__}}/css/{{$conf['css']}}.css" rel="stylesheet">
+    <!-- 返回顶部调用 begin -->
+    <link href="{{__ROOT__}}/{{__TEMPLATE__}}/css/lrtk.css" rel="stylesheet"/>
+    <script type="text/javascript" src="{{__ROOT__}}/{{__TEMPLATE__}}/js/jquery.js"></script>
+    <script type="text/javascript" src="{{__ROOT__}}/{{__TEMPLATE__}}/js/js.js"></script>
+    <!-- 返回顶部调用 end-->
+    <!--[if lt IE 9]>
+    <!--<script src="{{__TEMPLATE__}}/js/modernizr.js"></script>-->
+    <![endif]-->
+</head>
+<body>
+<header>
+    <nav id="nav">
+        <ul>
+            <li ><a href="{{__ROOT__}}"  title="{{$field['cate_name']}}">网站首页</a>
+                <category pid="0">
+                <li ><a href="{{$field['url']}}"  title="{{$field['cate_name']}}">{{$field['cate_name']}}</a>
+                </li>
+            </category>
+        </ul>
+        <script src="{{__ROOT__}}/{{__TEMPLATE__}}/js/silder.js"></script><!--获取当前页导航 高亮显示标题-->
+    </nav>
+</header>

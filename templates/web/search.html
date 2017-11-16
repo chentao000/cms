@@ -1,0 +1,70 @@
+<include file="templates/web/common/header.html"/>
+<!--header end-->
+<div id="mainbody">
+    <div class="blogs">
+        <div class="newlist">
+            <h2><span>
+</span>您当前的位置：<a href="{{__ROOT__}}">首页</a>&nbsp;>&nbsp;<a href="{{__ROOT__}}/search?search={{Request::get('search')}}">{{Request::get('search')}}</a>
+            </h2>
+            <ul>
+
+                <foreach from="$searchData" value="$field" >
+                    <p class="ptit"><b><a href="{{__ROOT__}}/c/{{$field['art_id']}}" target="_blank">
+                        <?php
+							$search = Request::get('search');
+							echo str_replace("$search","<span style='color:red'>$search</span>",$field['art_title']);
+                        ?>
+                    </a></b></p>
+                    <p class="ptime">发布时间：{{date('Y-m-d',strtotime($field['created_at']))}} 作者：{{$field['art_author']}}
+                        分类：{{$cate_data['cate_name']}} </p>
+                    <a href="{{__ROOT__}}/c/{{$field['art_id']}}" target="_blank" title=" {{$field['art_title']}}"><img
+                            src="{{__ROOT__}}/{{$field['art_thumb']}}" class="imgdow"
+                            alt=" {{$field['art_title']}}"></a>
+                    <p class="pcon">{{$field['art_description']}} <a
+                            href="{{__ROOT__}}/c/{{$field['art_id']}}" target="_blank"
+                            title=" {{$field['art_title']}}">详细信息</a></P>
+                    <div class="line"></div>
+                </foreach>
+
+
+
+            </ul>
+            <!--<div class="page"><a title="Total record"><b>38</b></a><a href="/jstt/index_2.html">2</a><a-->
+                    <!--href="/jstt/index_2.html">></a><a href="/jstt/index_2.html">>></a></div>-->
+            <style>
+                div .newlist ul li a:hover {
+                    padding: 0px;
+                }
+                div .newlist ul li:hover{
+                    cursor: pointer;
+                    background: #999;
+                }
+                div .newlist ul li.disabled:hover{
+                    background: #fff;
+                }
+                div .newlist ul li{
+                    border: 1px solid blue;
+                    margin-right:10px;
+                    float: left;
+                    padding:0px;
+                }
+                div .newlist ul li a{
+                    margin:0px 10px;
+                    text-align: center;
+                }
+                div .newlist ul li.active {
+                    background: #999;
+                }
+                div .newlist ul li.active a{
+                    corlor:#fff;
+                }
+            </style>
+        </div>
+
+        <!--bloglist end-->
+        <include file="templates/web/common/aside.html"/>
+    </div>
+    <!--blogs end-->
+</div>
+<!--mainbody end-->
+<include file="templates/web/common/footer.html"/>
